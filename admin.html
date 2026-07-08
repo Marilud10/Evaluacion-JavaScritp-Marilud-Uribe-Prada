@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Administrador | Eventix</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Panel de Administración</h1>
+
+        <p>
+            Gestiona los conciertos de Eventix
+        </p>
+
+    </header>
+
+    <main>
+
+        <!-- ========================= -->
+        <!-- DASHBOARD -->
+        <!-- ========================= -->
+
+        <section id="dashboard">
+
+            <div class="card-dashboard">
+
+                <h3>Total Eventos</h3>
+
+                <span id="totalEventos">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card-dashboard">
+
+                <h3>Publicados</h3>
+
+                <span id="eventosPublicados">
+                    0
+                </span>
+
+            </div>
+
+            <div class="card-dashboard">
+
+                <h3>Vendidos</h3>
+
+                <span id="eventosVendidos">
+                    0
+                </span>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- CATEGORÍAS -->
+        <!-- ========================= -->
+
+        <section id="categorias">
+
+            <h2>
+                Categorías
+            </h2>
+
+            <div class="formCategoria">
+
+                <input
+                    type="hidden"
+                    id="idCategoria">
+
+                <input
+                    type="text"
+                    id="nombreCategoria"
+                    placeholder="Nombre de la categoría">
+
+                <textarea
+                    id="descripcionCategoria"
+                    placeholder="Descripción">
+                </textarea>
+
+                <div class="accionesCategoria">
+
+                    <button
+                        id="btnGuardarCategoria">
+
+                        Guardar Categoría
+
+                    </button>
+
+                    <button
+                        id="btnCancelarCategoria">
+
+                        Cancelar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="listaCategorias">
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- EVENTOS -->
+        <!-- ========================= -->
+
+        <section id="formulario">
+
+            <h2>
+
+                Registrar Evento
+
+            </h2>
+
+            <input
+                type="hidden"
+                id="idEvento">
+
+            <input
+                type="text"
+                id="nombreEvento"
+                placeholder="Nombre del concierto">
+
+            <input
+                type="text"
+                id="artistaEvento"
+                placeholder="Artista">
+
+            <input
+                type="date"
+                id="fechaEvento">
+
+            <input
+                type="time"
+                id="horaEvento">
+
+            <select id="ciudadEvento"></select>
+            
+            <select
+                id="categoriaEvento">
+
+                <option value="">
+
+                    Seleccione una categoría
+
+                </option>
+
+            </select>
+
+            <input
+                type="number"
+                id="precioEvento"
+                placeholder="Precio">
+
+            <input
+                type="text"
+                id="imagenEvento"
+                placeholder="Ruta de la imagen">
+
+            <textarea
+                id="descripcionEvento"
+                placeholder="Descripción del concierto">
+            </textarea>
+
+            <div class="accionesFormulario">
+
+                <button
+                    id="btnGuardarEvento">
+
+                    Guardar Evento
+
+                </button>
+
+                <button
+                    id="btnCancelarEdicion">
+
+                    Cancelar
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- BUSCADOR -->
+        <!-- ========================= -->
+
+        <section id="eventos">
+
+            <div class="encabezado">
+
+                <h2>
+
+                    Eventos Registrados
+
+                </h2>
+
+                <input
+                    type="text"
+                    id="buscarEvento"
+                    placeholder="Buscar evento...">
+
+            </div>
+
+            <div id="listaEventos">
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/categorias.js"></script>
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

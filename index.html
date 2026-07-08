@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventix</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header id="navbar"></header>
+
+    <section id="promociones"></section>
+
+    <section id="hero"></section>
+
+    <section id="proximos" class="proximos">
+        
+    <div class="titulo">
+
+        <h2>
+
+            Próximos Conciertos
+
+        </h2>
+
+    </div>
+
+    <!-- FILTROS -->
+
+    <div class="filtros">
+
+        <input
+
+            type="text"
+
+            id="buscar"
+
+            placeholder="Buscar concierto..."
+
+        >
+
+        <select id="filtroCategoria">
+
+            <option value="">
+
+                Todas las categorías
+
+            </option>
+
+        </select>
+
+        <select id="filtroCiudad">
+
+            <option value="">
+
+                Todas las ciudades
+
+            </option>
+
+        </select>
+
+    </div>
+
+    <!-- TARJETAS -->
+
+    <div class="contenedor-cards">
+
+    </div>
+
+</section>
+    
+
+<section id="modalCarrito" class="modal oculto">
+
+    <div class="modal-contenido">
+
+        <div class="modal-header">
+
+            <h2>🛒 Carrito de Compras</h2>
+
+            <button id="cerrarCarrito">
+                ✖
+            </button>
+
+        </div>
+
+        <div id="listaCarrito">
+
+        </div>
+
+        <p id="carritoVacio">
+
+            No hay conciertos en el carrito.
+
+        </p>
+
+        <div class="totalCarrito">
+
+            <h3>
+
+                Total:
+                $
+
+                <span id="totalCompra">
+                    0
+                </span>
+
+            </h3>
+
+            <button id="btnComprarTodo">
+
+                Comprar
+
+            </button>
+            
+            <div id="formularioCompra" class="oculto">
+
+                <h3>Datos del Cliente</h3>
+
+                <input
+                    type="text"
+                    id="clienteNombre"
+                    placeholder="Nombre completo"
+                >
+
+                <input
+                    type="text"
+                    id="clienteCedula"
+                    placeholder="Número de identificación"
+                >
+
+                <input
+                    type="text"
+                    id="clienteDireccion"
+                    placeholder="Dirección"
+                >
+
+                <input
+                    type="text"
+                    id="clienteTelefono"
+                    placeholder="Teléfono"
+                >
+
+                <input
+                    type="email"
+                    id="clienteCorreo"
+                    placeholder="Correo electrónico"
+                >
+
+                <button id="confirmarCompra">
+
+                    Confirmar Compra
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <footer id="footer"></footer>
+
+    <script src="js/eventos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/ventas.js"></script>
+    
+
+</body>
+</html>
