@@ -20,7 +20,6 @@ const horaEvento = document.getElementById("horaEvento");
 const ciudadEvento = document.getElementById("ciudadEvento");
 const categoriaEvento = document.getElementById("categoriaEvento");
 const precioEvento = document.getElementById("precioEvento");
-const imagenEvento = document.getElementById("imagenEvento");
 const descripcionEvento = document.getElementById("descripcionEvento");
 
 //=====================================================
@@ -79,7 +78,6 @@ function limpiarFormulario() {
     categoriaEvento.selectedIndex = 0;
 
     precioEvento.value = "";
-    imagenEvento.value = "";
     descripcionEvento.value = "";
 
     btnGuardarEvento.textContent = "Guardar Evento";
@@ -173,235 +171,125 @@ function generarCodigoEvento(){
 }
 
 //=====================================================
-// MOSTRAR EVENTOS
+// CONVERTIR IMAGEN A BASE64
 //=====================================================
 
-function mostrarEventos(){
+function convertirImagenBase64(archivo){
 
-    const eventos = obtenerEventos();
+    return new Promise((resolve,reject)=>{
 
-    listaEventos.innerHTML = "";
+        const lector = new FileReader();
 
-    eventos.forEach(evento=>{
+        lector.readAsDataURL(archivo);
 
-        listaEventos.innerHTML += `
+        lector.onload = ()=>resolve(lector.result);
 
-        <div class="cardEvento">
-
-            <img
-
-                src="${evento.imagen}"
-
-                alt="${evento.nombre}"
-
-            >
-
-            <div class="infoEvento">
-
-                <h3>
-
-                    ${evento.nombre}
-
-                </h3>
-
-                <p>
-
-                    <strong>Código:</strong>
-
-                    ${evento.codigo}
-
-                </p>
-
-                <p>
-
-                    <strong>Artista:</strong>
-
-                    ${evento.artista}
-
-                </p>
-
-                <p>
-
-                    <strong>Categoría:</strong>
-
-                    ${evento.categoria}
-
-                </p>
-
-                <p>
-
-                    <strong>Ciudad:</strong>
-
-                    ${evento.ciudad}
-
-                </p>
-
-                <p>
-
-                    <strong>Fecha:</strong>
-
-                    ${evento.fecha}
-
-                </p>
-
-                <p>
-
-                    <strong>Hora:</strong>
-
-                    ${evento.hora}
-
-                </p>
-
-                <p>
-
-                    <strong>Precio:</strong>
-
-                    $${evento.precio}
-
-                </p>
-
-                <p>
-
-                    ${evento.vendido
-
-                        ? "🔴 Vendido"
-
-                        : "🟢 Disponible"}
-
-                </p>
-
-                <div class="accionesEvento">
-
-                    <button
-
-                        class="editarEvento"
-
-                        data-id="${evento.id}"
-
-                    >
-
-                        Editar
-
-                    </button>
-
-                    <button
-
-                        class="eliminarEvento"
-
-                        data-id="${evento.id}"
-
-                    >
-
-                        Eliminar
-
-                    </button>
-
-                    <button
-
-                        class="publicarEvento"
-
-                        data-id="${evento.id}"
-
-                    >
-
-                        ${evento.publicado
-
-                            ? "Ocultar"
-
-                            : "Publicar"}
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
+        lector.onerror = error=>reject(error);
 
     });
 
 }
+
 //=====================================================
 // GUARDAR / ACTUALIZAR EVENTO
 //=====================================================
 
 btnGuardarEvento.addEventListener("click", () => {
 
-    if (
+console.log("Nombre:", nombreEvento.value);
+console.log("Artista:", artistaEvento.value);
+console.log("Fecha:", fechaEvento.value);
+console.log("Hora:", horaEvento.value);
+console.log("Ciudad:", ciudadEvento.value);
+console.log("Categoría:", categoriaEvento.value);
+console.log("Precio:", precioEvento.value);
+console.log("Descripción:", descripcionEvento.value);
 
-        nombreEvento.value.trim() === "" ||
-        artistaEvento.value.trim() === "" ||
-        fechaEvento.value === "" ||
-        horaEvento.value === "" ||
-        ciudadEvento.value === "" ||
-        categoriaEvento.value === "" ||
-        precioEvento.value === "" ||
-        imagenEvento.value.trim() === "" ||
-        descripcionEvento.value.trim() === ""
+if (
 
-    ) {
+    nombreEvento.value.trim() === "" ||
 
-        alert("Complete todos los campos.");
+    artistaEvento.value.trim() === "" ||
 
-        return;
+    fechaEvento.value === "" ||
 
-    }
+    horaEvento.value === "" ||
 
-    if(Number(precioEvento.value) <= 0){
+    ciudadEvento.value === "" ||
 
-        alert("El precio debe ser mayor que cero.");
+    categoriaEvento.value === "" ||
 
-        return;
+    precioEvento.value === "" ||
 
-    }
+    descripcionEvento.value.trim() === ""
+
+){
+
+    alert("Complete todos los campos.");
+
+    return;
+
+}
 
     let eventos = obtenerEventos();
 
     const id = idEvento.value;
 
+    const codigo = id
+
+        ? eventos.find(e => e.id == id).codigo
+
+        : generarCodigoEvento();
+
     const eventoAnterior = eventos.find(
 
-        evento => evento.id == id
+        e => e.id == id
 
     );
 
     const evento = {
 
         id: id ? Number(id) : Date.now(),
-    
-        codigo,
-    
+
+        codigo: codigo,
+
         nombre: nombreEvento.value,
-    
+
         artista: artistaEvento.value,
-    
+
         fecha: fechaEvento.value,
-    
+
         hora: horaEvento.value,
-    
+
         ciudad: ciudadEvento.value,
-    
+
         categoria: categoriaEvento.value,
-    
+
         precio: Number(precioEvento.value),
-    
-        imagen: imagenEvento.value,
-    
+
+        imagen: eventoAnterior
+
+            ? eventoAnterior.imagen
+
+            : "img/sin-imagen.jpg",
+
         descripcion: descripcionEvento.value,
-    
-        publicado: id
-            ? eventos.find(e => e.id == id).publicado
+
+        publicado: eventoAnterior
+
+            ? eventoAnterior.publicado
+
             : false,
-    
-        vendido: id
-            ? eventos.find(e => e.id == id).vendido
+
+        vendido: eventoAnterior
+
+            ? eventoAnterior.vendido
+
             : false
-    
+
     };
 
-    if(id===""){
+    if (id === "") {
 
         eventos.push(evento);
 
@@ -409,11 +297,11 @@ btnGuardarEvento.addEventListener("click", () => {
 
     }
 
-    else{
+    else {
 
         const indice = eventos.findIndex(
 
-            evento => evento.id == id
+            e => e.id == id
 
         );
 
@@ -472,8 +360,6 @@ listaEventos.addEventListener("click",(e)=>{
         categoriaEvento.value = evento.categoria;
 
         precioEvento.value = evento.precio;
-
-        imagenEvento.value = evento.imagen;
 
         descripcionEvento.value = evento.descripcion;
 
@@ -634,10 +520,99 @@ function cargarCategoriasSelect(){
 }
 
 //=====================================================
+// MOSTRAR EVENTOS
+//=====================================================
+
+function mostrarEventos() {
+
+    const eventos = obtenerEventos();
+
+    listaEventos.innerHTML = "";
+
+    eventos.forEach(evento => {
+
+        listaEventos.innerHTML += `
+
+        <div class="cardEvento">
+
+            <img
+                src="${evento.imagen || 'img/sin-imagen.jpg'}"
+                alt="${evento.nombre}"
+            >
+
+            <div class="infoEvento">
+
+                <h3>${evento.nombre}</h3>
+
+                <p><strong>Código:</strong> ${evento.codigo}</p>
+
+                <p><strong>Artista:</strong> ${evento.artista}</p>
+
+                <p><strong>Categoría:</strong> ${evento.categoria}</p>
+
+                <p><strong>Ciudad:</strong> ${evento.ciudad}</p>
+
+                <p><strong>Fecha:</strong> ${evento.fecha}</p>
+
+                <p><strong>Hora:</strong> ${evento.hora}</p>
+
+                <p><strong>Precio:</strong> $${evento.precio.toLocaleString()}</p>
+
+                <p>
+                    ${evento.vendido ? "🔴 Vendido" : "🟢 Disponible"}
+                </p>
+
+                <div class="accionesEvento">
+
+                    <button
+                        class="editarEvento"
+                        data-id="${evento.id}">
+                        Editar
+                    </button>
+
+                    <button
+                        class="eliminarEvento"
+                        data-id="${evento.id}">
+                        Eliminar
+                    </button>
+
+                    <button
+                        class="publicarEvento"
+                        data-id="${evento.id}">
+                        ${evento.publicado ? "Ocultar" : "Publicar"}
+                    </button>
+
+                    <button
+                        class="imagenEvento"
+                        data-id="${evento.id}">
+                        📷 Imagen
+                    </button>
+
+                    <input
+                        type="file"
+                        class="inputImagen"
+                        data-id="${evento.id}"
+                        accept="image/*"
+                        style="display:none;"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+//=====================================================
 // INICIALIZACIÓN
 //=====================================================
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
 
     cargarCiudades();
 
@@ -646,5 +621,77 @@ window.addEventListener("DOMContentLoaded",()=>{
     mostrarEventos();
 
     actualizarDashboard();
+
+});
+
+//=====================================================
+// CAMBIAR IMAGEN DEL EVENTO
+//=====================================================
+
+document.addEventListener("click",(e)=>{
+
+    if(!e.target.classList.contains("imagenEvento")){
+
+        return;
+
+    }
+
+    const id = e.target.dataset.id;
+
+    const input = document.querySelector(
+
+        `.inputImagen[data-id="${id}"]`
+
+    );
+
+    if(input){
+
+        input.click();
+
+    }
+
+});
+
+document.addEventListener("change",async(e)=>{
+
+    if(!e.target.classList.contains("inputImagen")){
+
+        return;
+
+    }
+
+    const archivo = e.target.files[0];
+
+    if(!archivo){
+
+        return;
+
+    }
+
+    const imagenBase64 = await convertirImagenBase64(archivo);
+
+    const id = Number(e.target.dataset.id);
+
+    const eventos = obtenerEventos();
+
+    const evento = eventos.find(
+
+        evento=>evento.id===id
+
+    );
+
+    if(!evento){
+
+        return;
+
+    }
+
+    evento.imagen = imagenBase64;
+
+    guardarEventos(eventos);
+
+    mostrarEventos();
+
+    alert("Imagen actualizada correctamente.");
 
 });
