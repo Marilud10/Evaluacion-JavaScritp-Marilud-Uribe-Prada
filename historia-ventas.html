@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Historial de Ventas</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+<body>
+
+    <!--=========================
+            MENÚ
+    ==========================-->
+
+    <header>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-ticket"></i>
+
+            <h2>Eventrix</h2>
+
+        </div>
+
+        <nav>
+
+            <a href="admin.html">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Volver al Panel
+
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!--=========================
+          HISTORIAL
+    ==========================-->
+
+    <main>
+
+        <section class="historial">
+
+            <div class="titulo">
+
+                <h1>
+
+                    Historial de Ventas
+
+                </h1>
+
+                <p>
+
+                    Consulta todas las compras realizadas por los clientes.
+
+                </p>
+
+            </div>
+
+            <div class="busqueda">
+
+                <input
+
+                    type="text"
+
+                    id="buscarVenta"
+
+                    placeholder="Buscar por cliente, evento o cédula..."
+
+                >
+
+            </div>
+
+            <div id="listaVentas">
+
+                <!-- Las tarjetas se crean desde historia-ventas.js -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/historia-ventas.js"></script>
+
+</body>
+
+</html>

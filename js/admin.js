@@ -49,7 +49,7 @@ function obtenerEventos() {
     ) || [];
 
 }
-
+console.log(eventos);
 function guardarEventos(eventos) {
 
     localStorage.setItem(
@@ -126,6 +126,7 @@ async function cargarCiudades() {
 
 }
 
+
 //=====================================================
 // GENERAR CÓDIGO
 //=====================================================
@@ -134,32 +135,20 @@ function generarCodigoEvento(){
 
     const eventos = obtenerEventos();
 
-    if(eventos.length===0){
-
-        return "EVT-001";
-
-    }
-
     let mayor = 0;
 
     eventos.forEach(evento=>{
 
+        if(!evento.codigo){
+            return;
+        }
+
         const numero = Number(
-
-            evento.codigo.replace(
-
-                "EVT-",
-
-                ""
-
-            )
-
+            evento.codigo.replace("EVT-","")
         );
 
         if(numero > mayor){
-
             mayor = numero;
-
         }
 
     });
@@ -695,3 +684,20 @@ document.addEventListener("change",async(e)=>{
     alert("Imagen actualizada correctamente.");
 
 });
+
+
+//=====================================================
+// historial de ventas
+//=====================================================
+
+const btnHistorialVentas = document.getElementById("btnHistorialVentas");
+
+if(btnHistorialVentas){
+
+    btnHistorialVentas.addEventListener("click",()=>{
+
+        window.location.href = "historial-ventas.html";
+
+    });
+
+}

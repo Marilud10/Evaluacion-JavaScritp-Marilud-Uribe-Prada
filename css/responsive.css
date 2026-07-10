@@ -228,3 +228,81 @@
         display: block;
 
 }
+
+
+/* =======================
+      RESPONSIVE
+======================= */
+
+@media(max-width:768px){
+
+        #eventos{
+    
+            padding:25px;
+    
+        }
+    
+        .encabezado{
+    
+            flex-direction:column;
+    
+            align-items:flex-start;
+    
+        }
+    
+        #buscarEvento{
+    
+            width:100%;
+    
+        }
+    
+        .accionesEvento{
+    
+            grid-template-columns:1fr;
+    
+        }
+    
+    }
+
+
+/*=====================================================
+            RESPONSIVE
+=====================================================*/
+
+@media(max-width:900px){
+
+        header{
+    
+            flex-direction:column;
+    
+            gap:20px;
+    
+            text-align:center;
+    
+        }
+    
+        #listaVentas{
+    
+            grid-template-columns:1fr;
+    
+        }
+    
+    }
+    
+    @media(max-width:600px){
+    
+        .titulo h1{
+    
+            font-size:32px;
+    
+        }
+    
+        .datosVenta p{
+    
+            flex-direction:column;
+    
+            gap:5px;
+    
+        }
+    
+    }

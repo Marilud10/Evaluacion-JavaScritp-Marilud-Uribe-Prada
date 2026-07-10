@@ -563,164 +563,254 @@ main {
 }
 
 /* =======================
-      EVENTOS
+        EVENTOS
 ======================= */
 
-#eventos {
-    background: white;
-    border-radius: 30px;
-    padding: 40px;
-
-    box-shadow:
-        0 8px 20px
-        rgba(0, 0, 0, .08);
+#eventos{
+    background:#fff;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.encabezado {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+/* =======================
+      ENCABEZADO
+======================= */
 
-    margin-bottom: 40px;
+.encabezado{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
 }
 
-.encabezado h2 {
-    font-size: 35px;
+.encabezado h2{
+    font-size:35px;
+    color:#1f2937;
 }
 
-#buscarEvento {
-    width: 300px;
-    padding: 15px;
-
-    border: 2px solid #e5e7eb;
-    border-radius: 15px;
-
-    font-size: 16px;
-    outline: none;
+#buscarEvento{
+    width:300px;
+    padding:15px 18px;
+    border:2px solid #e5e7eb;
+    border-radius:15px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
 }
 
-#buscarEvento:focus {
-    border-color: #8b5cf6;
+#buscarEvento:focus{
+    border-color:#8b5cf6;
 }
 
 /* =======================
       LISTA EVENTOS
 ======================= */
 
-#listaEventos {
-    display: grid;
+#listaEventos{
+
+    display:grid;
+
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(300px, 1fr)
-        );
+    repeat(auto-fit,minmax(330px,1fr));
 
-    gap: 30px;
-}
+    gap:30px;
 
-.card-evento {
-    background: #fafafa;
-    border-radius: 25px;
-    overflow: hidden;
-
-    box-shadow:
-        0 5px 15px
-        rgba(0, 0, 0, .06);
-
-    transition: .3s;
-}
-
-.card-evento:hover {
-    transform: translateY(-5px);
-}
-
-.card-evento img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-contenido {
-    padding: 25px;
-}
-
-.card-contenido h3 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.card-contenido p {
-    margin-bottom: 10px;
-    color: #6b7280;
-}
-
-.card-contenido h4 {
-    color: #8b5cf6;
-    font-size: 28px;
-    margin: 20px 0;
 }
 
 /* =======================
-  BOTONES DE LAS TARJETAS
+        TARJETA
 ======================= */
 
-.acciones-card {
-    display: flex;
-    gap: 15px;
+.cardEvento{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
 }
 
-.acciones-card button {
-    flex: 1;
+.cardEvento:hover{
 
-    border: none;
-    border-radius: 12px;
+    transform:translateY(-8px);
 
-    padding: 12px;
-    cursor: pointer;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 
-    color: white;
-    font-weight: bold;
 }
-
-.btn-editar {
-    background: #2563eb;
-}
-
-.btn-eliminar {
-    background: #ef4444;
-}
-
 
 /* =======================
-  BOTONES DE ELIMINAR Y EDITAR
+        IMAGEN
 ======================= */
 
-.acciones-card {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
+.cardEvento img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#ececec;
+
 }
 
-.acciones-card button {
-    flex: 1;
-    border: none;
-    padding: 12px;
-    border-radius: 12px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+/* =======================
+      INFORMACIÓN
+======================= */
+
+.infoEvento{
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
 }
 
-.btn-editar {
-    background: #2563eb;
+.infoEvento h3{
+
+    font-size:28px;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
 }
 
-.btn-eliminar {
-    background: #ef4444;
+.infoEvento p{
+
+    margin:0;
+
+    color:#6b7280;
+
+    font-size:15px;
+
+    line-height:1.5;
+
 }
 
+.infoEvento strong{
 
+    color:#111827;
+
+}
+
+/* Estado */
+
+.infoEvento p:last-of-type{
+
+    font-weight:bold;
+
+}
+
+/* =======================
+        BOTONES
+======================= */
+
+.accionesEvento{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.accionesEvento button{
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+/* EDITAR */
+
+.editarEvento{
+
+    background:#3b82f6;
+
+}
+
+.editarEvento:hover{
+
+    background:#2563eb;
+
+}
+
+/* ELIMINAR */
+
+.eliminarEvento{
+
+    background:#ef4444;
+
+}
+
+.eliminarEvento:hover{
+
+    background:#dc2626;
+
+}
+
+/* PUBLICAR */
+
+.publicarEvento{
+
+    background:#8b5cf6;
+
+}
+
+.publicarEvento:hover{
+
+    background:#7c3aed;
+
+}
+
+/* IMAGEN */
+
+.imagenEvento{
+
+    background:#10b981;
+
+}
+
+.imagenEvento:hover{
+
+    background:#059669;
+
+}
 
 
 
@@ -1218,6 +1308,579 @@ main {
     font-size:13px;
 
     font-weight:bold;
+
+}
+
+
+/*=====================================================
+            HISTORIAL DE VENTAS
+=====================================================*/
+
+#ventas{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.encabezadoVentas{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.encabezadoVentas h2{
+
+    color:#7c3aed;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+#buscarVenta{
+
+    width:320px;
+
+    padding:12px 18px;
+
+    border:2px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+#buscarVenta:focus{
+
+    border-color:#7c3aed;
+
+}
+
+/*=====================================================
+                TABLA
+=====================================================*/
+
+.contenedorTabla{
+
+    overflow-x:auto;
+
+    border-radius:15px;
+
+}
+
+.tablaVentas{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    min-width:1100px;
+
+}
+
+.tablaVentas thead{
+
+    background:#7c3aed;
+
+    color:white;
+
+}
+
+.tablaVentas thead th{
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+
+.tablaVentas tbody tr{
+
+    border-bottom:1px solid #ececec;
+
+    transition:.2s;
+
+}
+
+.tablaVentas tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+.tablaVentas tbody tr:hover{
+
+    background:#ede9fe;
+
+}
+
+.tablaVentas td{
+
+    padding:15px;
+
+    color:#444;
+
+    font-size:14px;
+
+}
+
+/*=====================================================
+            ESTADOS
+=====================================================*/
+
+.estadoPagado{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.estadoPendiente{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+/*=====================================================
+            BOTONES
+=====================================================*/
+
+.btnVer{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btnVer:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btnEliminarVenta{
+
+    background:#ef4444;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btnEliminarVenta:hover{
+
+    background:#dc2626;
+
+}
+
+/*=====================================================
+            DASHBOARD
+=====================================================*/
+
+#dashboardVentas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.cardDashboard{
+
+    background:white;
+
+    border-left:8px solid #7c3aed;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.cardDashboard h3{
+
+    color:#777;
+
+    font-size:17px;
+
+    margin-bottom:12px;
+
+}
+
+.cardDashboard span{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#7c3aed;
+
+}
+
+
+/*=====================================================
+            Historial de ventas
+=====================================================*/
+
+
+
+/*=====================================================
+                    GENERAL
+=====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+    color:#2d3748;
+}
+
+/*=====================================================
+                    HEADER
+=====================================================*/
+
+header{
+
+    background:#8b5cf6;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 50px;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.logo i{
+
+    font-size:30px;
+
+}
+
+.logo h2{
+
+    font-size:28px;
+    font-weight:700;
+
+}
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    border-radius:12px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+nav a:hover{
+
+    background:white;
+    color:#8b5cf6;
+
+}
+
+/*=====================================================
+                    CONTENEDOR
+=====================================================*/
+
+.historial{
+
+    width:95%;
+    max-width:1300px;
+
+    margin:40px auto;
+
+}
+
+/*=====================================================
+                    TITULO
+=====================================================*/
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.titulo h1{
+
+    font-size:42px;
+    color:#8b5cf6;
+
+}
+
+.titulo p{
+
+    color:#6b7280;
+    font-size:18px;
+
+    margin-top:10px;
+
+}
+
+/*=====================================================
+                    BUSCADOR
+=====================================================*/
+
+.busqueda{
+
+    display:flex;
+    justify-content:center;
+
+    margin-bottom:35px;
+
+}
+
+#buscarVenta{
+
+    width:500px;
+    max-width:100%;
+
+    padding:15px 20px;
+
+    border:none;
+    border-radius:15px;
+
+    background:white;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+#buscarVenta:focus{
+
+    border:2px solid #8b5cf6;
+
+}
+
+/*=====================================================
+                    LISTA
+=====================================================*/
+
+#listaVentas{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit,minmax(420px,1fr));
+
+    gap:30px;
+
+}
+
+/*=====================================================
+                    TARJETA
+=====================================================*/
+
+.cardVenta{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.cardVenta:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/*=====================================================
+            TITULO TARJETA
+=====================================================*/
+
+.tituloVenta{
+
+    background:linear-gradient(
+
+        135deg,
+
+        #8b5cf6,
+
+        #6d28d9
+
+    );
+
+    color:white;
+
+    padding:20px;
+
+}
+
+.tituloVenta h2{
+
+    font-size:25px;
+
+}
+
+/*=====================================================
+            INFORMACION
+=====================================================*/
+
+.datosVenta{
+
+    padding:25px;
+
+}
+
+.datosVenta p{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin:12px 0;
+
+    padding-bottom:10px;
+
+    border-bottom:1px solid #ececec;
+
+    color:#4b5563;
+
+    font-size:15px;
+
+}
+
+.datosVenta strong{
+
+    color:#111827;
+
+}
+
+/*=====================================================
+            TOTAL
+=====================================================*/
+
+.datosVenta p:last-child{
+
+    border:none;
+
+}
+
+/*=====================================================
+            SIN VENTAS
+=====================================================*/
+
+.sinVentas{
+
+    background:white;
+
+    padding:70px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    color:#8b5cf6;
+
+    font-size:22px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
 
 }
 

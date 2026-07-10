@@ -3,37 +3,37 @@
 //=====================================================
 
 const modalCarrito =
-document.getElementById("modalCarrito");
+    document.getElementById("modalCarrito");
 
 const listaCarrito =
-document.getElementById("listaCarrito");
+    document.getElementById("listaCarrito");
 
 const totalCompra =
-document.getElementById("totalCompra");
+    document.getElementById("totalCompra");
 
 const contadorCarrito =
-document.getElementById("contadorCarrito");
+    document.getElementById("contadorCarrito");
 
 const btnAbrirCarrito =
-document.getElementById("abrirCarrito");
+    document.getElementById("abrirCarrito");
 
 const btnCerrarCarrito =
-document.getElementById("cerrarCarrito");
+    document.getElementById("cerrarCarrito");
 
 const btnComprarTodo =
-document.getElementById("btnComprarTodo");
+    document.getElementById("btnComprarTodo");
 
 const formularioCompra =
-document.getElementById("formularioCompra");
+    document.getElementById("formularioCompra");
 
 const btnConfirmarCompra =
-document.getElementById("confirmarCompra");
+    document.getElementById("confirmarCompra");
 
 //=====================================================
 // LOCALSTORAGE
 //=====================================================
 
-function obtenerCarrito(){
+function obtenerCarrito() {
 
     return JSON.parse(
 
@@ -43,7 +43,7 @@ function obtenerCarrito(){
 
 }
 
-function guardarCarrito(carrito){
+function guardarCarrito(carrito) {
 
     localStorage.setItem(
 
@@ -60,7 +60,7 @@ function guardarCarrito(carrito){
 // AGREGAR AL CARRITO
 //=====================================================
 
-function agregarAlCarrito(idEvento){
+function agregarAlCarrito(idEvento) {
 
     const eventos = JSON.parse(
 
@@ -70,13 +70,14 @@ function agregarAlCarrito(idEvento){
 
     const carrito = obtenerCarrito();
 
-    const evento = eventos.find(
+    console.log("ID recibido:", idEvento);
+    console.log("Eventos:", eventos);
 
-        evento => evento.id == idEvento
+    const evento = eventos.find(evento => Number(evento.id) === Number(idEvento));
 
-    );
+    console.log("Evento encontrado:", evento);
 
-    if(!evento){
+    if (!evento) {
 
         alert("No se encontró el evento.");
 
@@ -100,7 +101,7 @@ function agregarAlCarrito(idEvento){
 // ABRIR Y CERRAR
 //=====================================================
 
-btnAbrirCarrito.addEventListener("click",()=>{
+btnAbrirCarrito.addEventListener("click", () => {
 
     mostrarCarrito();
 
@@ -108,7 +109,7 @@ btnAbrirCarrito.addEventListener("click",()=>{
 
 });
 
-btnCerrarCarrito.addEventListener("click",()=>{
+btnCerrarCarrito.addEventListener("click", () => {
 
     modalCarrito.classList.add("oculto");
 
@@ -119,7 +120,7 @@ btnCerrarCarrito.addEventListener("click",()=>{
 // MOSTRAR CARRITO
 //=====================================================
 
-function mostrarCarrito(){
+function mostrarCarrito() {
 
     const carrito = obtenerCarrito();
 
@@ -127,7 +128,7 @@ function mostrarCarrito(){
 
     let total = 0;
 
-    if(carrito.length === 0){
+    if (carrito.length === 0) {
 
         listaCarrito.innerHTML = `
 
@@ -141,7 +142,7 @@ function mostrarCarrito(){
 
     }
 
-    carrito.forEach((evento,index)=>{
+    carrito.forEach((evento, index) => {
 
         total += evento.precio;
 
@@ -205,7 +206,7 @@ function mostrarCarrito(){
 // ACTUALIZAR CONTADOR
 //=====================================================
 
-function actualizarContador(){
+function actualizarContador() {
 
     contadorCarrito.textContent =
 
@@ -217,9 +218,9 @@ function actualizarContador(){
 // ELIMINAR DEL CARRITO
 //=====================================================
 
-listaCarrito.addEventListener("click",(e)=>{
+listaCarrito.addEventListener("click", (e) => {
 
-    if(!e.target.classList.contains("btnEliminar")){
+    if (!e.target.classList.contains("btnEliminar")) {
 
         return;
 
@@ -233,7 +234,7 @@ listaCarrito.addEventListener("click",(e)=>{
 
     const carrito = obtenerCarrito();
 
-    carrito.splice(index,1);
+    carrito.splice(index, 1);
 
     guardarCarrito(carrito);
 
@@ -247,9 +248,9 @@ listaCarrito.addEventListener("click",(e)=>{
 // MOSTRAR FORMULARIO DE COMPRA
 //=====================================================
 
-btnComprarTodo.addEventListener("click",()=>{
+btnComprarTodo.addEventListener("click", () => {
 
-    if(obtenerCarrito().length===0){
+    if (obtenerCarrito().length === 0) {
 
         alert("El carrito está vacío.");
 
@@ -261,40 +262,30 @@ btnComprarTodo.addEventListener("click",()=>{
 
 });
 
-//=====================================================
-// CONFIRMAR COMPRA
-//=====================================================
-
-btnConfirmarCompra.addEventListener("click",()=>{
+btnConfirmarCompra.addEventListener("click", () => {
 
     const nombre =
-    document.getElementById("clienteNombre").value.trim();
+        document.getElementById("clienteNombre").value.trim();
 
     const cedula =
-    document.getElementById("clienteCedula").value.trim();
+        document.getElementById("clienteCedula").value.trim();
 
     const direccion =
-    document.getElementById("clienteDireccion").value.trim();
+        document.getElementById("clienteDireccion").value.trim();
 
     const telefono =
-    document.getElementById("clienteTelefono").value.trim();
+        document.getElementById("clienteTelefono").value.trim();
 
     const correo =
-    document.getElementById("clienteCorreo").value.trim();
+        document.getElementById("clienteCorreo").value.trim();
 
-    if(
-
-        nombre==="" ||
-
-        cedula==="" ||
-
-        direccion==="" ||
-
-        telefono==="" ||
-
-        correo===""
-
-    ){
+    if (
+        nombre === "" ||
+        cedula === "" ||
+        direccion === "" ||
+        telefono === "" ||
+        correo === ""
+    ) {
 
         alert("Complete todos los datos.");
 
@@ -302,38 +293,32 @@ btnConfirmarCompra.addEventListener("click",()=>{
 
     }
 
+    console.log("registrarVenta:", typeof registrarVenta);
+
     registrarVenta({
-
         nombre,
-
         cedula,
-
         direccion,
-
         telefono,
-
         correo
-
     });
 
-    actualizarContador();
-
-    mostrarCarrito();
-
-    formularioCompra.classList.add("oculto");
-
-    modalCarrito.classList.add("oculto");
-
-    alert("Compra realizada correctamente.");
+    alert("Llegó hasta aquí");
 
 });
-
-
 //=====================================================
-// MARCAR EVENTOS COMO VENDIDOS
+// REGISTRAR VENTA
 //=====================================================
 
-function marcarEventosVendidos(carrito){
+function registrarVenta(cliente){
+
+    const carrito = obtenerCarrito();
+
+    let ventas = JSON.parse(
+
+        localStorage.getItem("ventas")
+
+    ) || [];
 
     const eventos = JSON.parse(
 
@@ -341,15 +326,101 @@ function marcarEventosVendidos(carrito){
 
     ) || [];
 
-    carrito.forEach(compra=>{
+    carrito.forEach(item=>{
 
+        // Buscar el evento actualizado
         const evento = eventos.find(
 
-            e=>e.id==compra.id
+            e => e.id == item.id
 
         );
 
-        if(evento){
+        if(!evento){
+
+            return;
+
+        }
+
+        ventas.push({
+
+            id: Date.now() + Math.random(),
+
+            codigo: evento.codigo,
+
+            evento: evento.nombre,
+
+            artista: evento.artista,
+
+            ciudad: evento.ciudad,
+
+            fechaEvento: evento.fecha,
+
+            hora: evento.hora,
+
+            cantidad: 1,
+
+            precio: evento.precio,
+
+            total: evento.precio,
+
+            cliente: cliente.nombre,
+
+            cedula: cliente.cedula,
+
+            direccion: cliente.direccion,
+
+            telefono: cliente.telefono,
+
+            correo: cliente.correo,
+
+            fechaCompra: new Date().toLocaleString()
+
+        });
+
+        evento.vendido = true;
+
+    });
+
+    localStorage.setItem(
+
+        "ventas",
+
+        JSON.stringify(ventas)
+
+    );
+
+    localStorage.setItem(
+
+        "eventos",
+
+        JSON.stringify(eventos)
+
+    );
+
+    localStorage.removeItem("carrito");
+
+}
+//=====================================================
+// MARCAR EVENTOS COMO VENDIDOS
+//=====================================================
+
+function marcarEventosVendidos(carrito) {
+
+    const eventos = JSON.parse(
+
+        localStorage.getItem("eventos")
+
+    ) || [];
+
+    carrito.forEach(compra => {
+
+        const evento = eventos.find(
+
+            e => e.id == compra.id
+
+        );
+
+        if (evento) {
 
             evento.vendido = true;
 
@@ -371,7 +442,7 @@ function marcarEventosVendidos(carrito){
 // INICIALIZACIÓN
 //=====================================================
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
 
     actualizarContador();
 
