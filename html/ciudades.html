@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Gestión de Ciudades</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/evaluacion.css">
+
+</head>
+
+<body>
+
+    <main class="contenedorCiudades">
+
+        <h1>
+
+            Gestión de Ciudades
+
+        </h1>
+
+        <button
+            id="btnNuevaCiudad"
+            class="btnNuevaCiudad">
+
+            + Agregar Ciudad
+
+        </button>
+
+        <div id="listaCiudades">
+
+        </div>
+
+    </main>
+
+    <!--=====================================================
+                        MODAL
+    ======================================================-->
+
+    <div
+        id="modalCiudad"
+        class="modal oculto">
+
+        <div class="contenidoModal">
+
+            <h2>
+
+                Ciudad
+
+            </h2>
+
+            <form id="formCiudad">
+
+                <input
+                    type="hidden"
+                    id="idCiudad">
+
+                <input
+                    type="text"
+                    id="codigoCiudad"
+                    placeholder="Código">
+
+                <input
+                    type="text"
+                    id="nombreCiudad"
+                    placeholder="Nombre">
+
+                <div class="botonesModal">
+
+                    <button
+                        type="submit">
+
+                        Guardar
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cerrarModal">
+
+                        Cancelar
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="../js/ciudades.js"></script>
+
+</body>
+
+</html>

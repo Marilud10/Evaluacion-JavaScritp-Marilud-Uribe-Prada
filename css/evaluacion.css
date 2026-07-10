@@ -1,0 +1,362 @@
+/*=====================================================
+                GESTIÓN DE CIUDADES
+=====================================================*/
+
+.contenedorCiudades{
+
+    width:95%;
+    max-width:1100px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.08);
+
+}
+
+.contenedorCiudades h1{
+
+    text-align:center;
+
+    color:#7c3aed;
+
+    margin-bottom:30px;
+
+    font-size:38px;
+
+}
+
+/*=====================================================
+                BOTÓN AGREGAR
+=====================================================*/
+
+.btnNuevaCiudad{
+
+    background:#7c3aed;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    margin-bottom:30px;
+
+}
+
+.btnNuevaCiudad:hover{
+
+    background:#6d28d9;
+
+    transform:translateY(-3px);
+
+}
+
+/*=====================================================
+                LISTA
+=====================================================*/
+
+#listaCiudades{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+/*=====================================================
+                TARJETA
+=====================================================*/
+
+.cardCiudad{
+
+    background:#fafafa;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.cardCiudad:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.cardCiudad h3{
+
+    color:#7c3aed;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+.cardCiudad p{
+
+    color:#6b7280;
+
+    margin-bottom:20px;
+
+    font-size:16px;
+
+}
+
+/*=====================================================
+                BOTONES
+=====================================================*/
+
+.botonesCiudad{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.botonesCiudad button{
+
+    flex:1;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btnEditar{
+
+    background:#2563eb;
+
+}
+
+.btnEditar:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btnEliminar{
+
+    background:#ef4444;
+
+}
+
+.btnEliminar:hover{
+
+    background:#dc2626;
+
+}
+
+/*=====================================================
+                    MODAL
+=====================================================*/
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.oculto{
+
+    display:none;
+
+}
+
+.contenidoModal{
+
+    width:90%;
+    max-width:450px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    animation:aparecer .3s;
+
+}
+
+.contenidoModal h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#7c3aed;
+
+}
+
+/*=====================================================
+                FORMULARIO
+=====================================================*/
+
+#formCiudad{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+#formCiudad input{
+
+    padding:15px;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+#formCiudad input:focus{
+
+    border-color:#7c3aed;
+
+}
+
+.botonesModal{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.botonesModal button{
+
+    flex:1;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    color:white;
+
+}
+
+.botonesModal button[type="submit"]{
+
+    background:#16a34a;
+
+}
+
+.botonesModal button[type="submit"]:hover{
+
+    background:#15803d;
+
+}
+
+#cerrarModal{
+
+    background:#ef4444;
+
+}
+
+#cerrarModal:hover{
+
+    background:#dc2626;
+
+}
+
+/*=====================================================
+                ANIMACIÓN
+=====================================================*/
+
+@keyframes aparecer{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/*=====================================================
+                RESPONSIVE
+=====================================================*/
+
+@media(max-width:768px){
+
+    #listaCiudades{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

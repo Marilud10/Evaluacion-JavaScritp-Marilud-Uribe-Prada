@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "codigo": "CT001",
+        "nombre": "Bogotá"
+    },
+    {
+        "id": 2,
+        "codigo": "CT002",
+        "nombre": "Medellín"
+    },
+    {
+        "id": 3,
+        "codigo": "CT003",
+        "nombre": "Cali"
+    },
+    {
+        "id": 4,
+        "codigo": "CT004",
+        "nombre": "Barranquilla"
+    },
+    {
+        "id": 5,
+        "codigo": "CT005",
+        "nombre": "Bucaramanga"
+    }
+]

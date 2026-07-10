@@ -1884,3 +1884,121 @@ nav a:hover{
 
 }
 
+
+
+
+/*=====================================================
+            BOTÓN BUZÓN DE SUGERENCIAS
+=====================================================*/
+
+.btnSugerencias{
+
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    margin: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 6px 15px
+        rgba(0,0,0,.15);
+
+}
+
+.btnSugerencias:hover{
+
+    background: #1d4ed8;
+
+    transform: translateY(-3px);
+
+}
+
+
+/*=====================================================
+            BOTÓN REPORTE DE VENTAS
+=====================================================*/
+
+.btnReporte{
+
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    margin: 10px;
+
+    background: #16a34a;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 6px 15px
+        rgba(0,0,0,.15);
+
+}
+
+.btnReporte:hover{
+
+    background: #15803d;
+
+    transform: translateY(-3px);
+
+}
+
+
+/*=====================================================
+            BOTÓN GESTIÓN DE CIUDADES
+=====================================================*/
+
+.btnCiudades{
+
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    margin: 10px;
+
+    background: #ea580c;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 12px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 6px 15px
+        rgba(0,0,0,.15);
+
+}
+
+.btnCiudades:hover{
+
+    background: #c2410c;
+
+    transform: translateY(-3px);
+
+}

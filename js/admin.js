@@ -49,7 +49,7 @@ function obtenerEventos() {
     ) || [];
 
 }
-console.log(eventos);
+
 function guardarEventos(eventos) {
 
     localStorage.setItem(
@@ -84,48 +84,35 @@ function limpiarFormulario() {
 
 }
 
+///=====================================================
+// CARGAR CIUDADES DESDE LOCALSTORAGE
 //=====================================================
-// CARGAR CIUDADES DESDE API
-//=====================================================
 
-async function cargarCiudades() {
+function cargarCiudades() {
 
-    try {
+    const ciudades = JSON.parse(
 
-        const respuesta = await fetch(
-            "https://api-colombia.com/api/v1/City"
-        );
+        localStorage.getItem("ciudades")
 
-        const ciudades = await respuesta.json();
+    ) || [];
 
-        ciudadEvento.innerHTML = `
-            <option value="">
-                Seleccione una ciudad
+    ciudadEvento.innerHTML = `
+        <option value="">
+            Seleccione una ciudad
+        </option>
+    `;
+
+    ciudades.forEach(ciudad => {
+
+        ciudadEvento.innerHTML += `
+            <option value="${ciudad.nombre}">
+                ${ciudad.nombre}
             </option>
         `;
 
-        ciudades
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .forEach(ciudad => {
-
-                ciudadEvento.innerHTML += `
-                    <option value="${ciudad.name}">
-                        ${ciudad.name}
-                    </option>
-                `;
-
-            });
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("No fue posible cargar las ciudades.");
-
-    }
+    });
 
 }
-
 
 //=====================================================
 // GENERAR CÓDIGO
