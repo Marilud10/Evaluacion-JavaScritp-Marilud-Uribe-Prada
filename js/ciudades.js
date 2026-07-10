@@ -57,6 +57,46 @@ function guardarCiudades(ciudades){
 }
 
 //=====================================================
+// CARGAR CIUDADES DESDE JSON
+//=====================================================
+
+async function cargarCiudadesIniciales(){
+
+    if(obtenerCiudades().length > 0){
+
+        return;
+
+    }
+
+    try{
+
+        const respuesta = await fetch(
+
+            "../Data/ciudades.json"
+
+        );
+
+        const ciudades = await respuesta.json();
+
+        guardarCiudades(ciudades);
+
+    }
+
+    catch(error){
+
+        console.error(
+
+            "Error cargando ciudades:",
+
+            error
+
+        );
+
+    }
+
+}
+
+//=====================================================
 // LIMPIAR FORMULARIO
 //=====================================================
 
@@ -316,8 +356,16 @@ listaCiudades.addEventListener("click",(e)=>{
 // INICIALIZACIÓN
 //=====================================================
 
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener(
 
-    pintarCiudades();
+    "DOMContentLoaded",
 
-});
+    async()=>{
+
+        await cargarCiudadesIniciales();
+
+        pintarCiudades();
+
+    }
+
+);

@@ -10,7 +10,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f3f4f8;
+    background: #1b031d;
     color: #1f2937;
 }
 
@@ -19,8 +19,9 @@ body {
 ======================= */
 
 .navbar {
-    background: white;
+    background: rgb(255, 255, 255);
     height: 80px;
+    border-radius: 20px;
 
     display: flex;
     justify-content: space-around;
@@ -87,7 +88,7 @@ body {
     background: linear-gradient(
         45deg,
         #8b5cf6,
-        #6d28d9
+        #ffa1bd
     );
 }
 
@@ -95,14 +96,14 @@ body {
     background: linear-gradient(
         45deg,
         #3b82f6,
-        #2563eb
+        #25eb67
     );
 }
 
 .naranja {
     background: linear-gradient(
         45deg,
-        #f97316,
+        #b116f9,
         #ea580c
     );
 }
@@ -285,6 +286,9 @@ body {
     border-radius: 15px;
     cursor: pointer;
 }
+
+
+
 
 /* =======================
         FOOTER
@@ -1887,82 +1891,10 @@ nav a:hover{
 
 
 
-/*=====================================================
-            BOTÓN BUZÓN DE SUGERENCIAS
-=====================================================*/
-
-.btnSugerencias{
-
-    display: inline-block;
-
-    padding: 15px 25px;
-
-    margin: 10px;
-
-    background: #2563eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    border-radius: 12px;
-
-    transition: .3s;
-
-    box-shadow:
-        0 6px 15px
-        rgba(0,0,0,.15);
-
-}
-
-.btnSugerencias:hover{
-
-    background: #1d4ed8;
-
-    transform: translateY(-3px);
-
-}
 
 
-/*=====================================================
-            BOTÓN REPORTE DE VENTAS
-=====================================================*/
 
-.btnReporte{
 
-    display: inline-block;
-
-    padding: 15px 25px;
-
-    margin: 10px;
-
-    background: #16a34a;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    border-radius: 12px;
-
-    transition: .3s;
-
-    box-shadow:
-        0 6px 15px
-        rgba(0,0,0,.15);
-
-}
-
-.btnReporte:hover{
-
-    background: #15803d;
-
-    transform: translateY(-3px);
-
-}
 
 
 /*=====================================================
@@ -1977,7 +1909,7 @@ nav a:hover{
 
     margin: 10px;
 
-    background: #ea580c;
+    background: #610cea;
 
     color: white;
 
@@ -1997,7 +1929,7 @@ nav a:hover{
 
 .btnCiudades:hover{
 
-    background: #c2410c;
+    background: #e700a2;
 
     transform: translateY(-3px);
 

@@ -1,23 +1,51 @@
 /*=====================================================
-                GESTIÓN DE CIUDADES
+                    GENERAL
+=====================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:
+        linear-gradient(
+            rgba(17,24,39,.80),
+            rgba(17,24,39,.80)
+        ),
+        url("../img/Fondo.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    padding: 50px;
+
+}
+
+/*=====================================================
+                CONTENEDOR
 =====================================================*/
 
 .contenedorCiudades{
 
-    width:95%;
-    max-width:1100px;
+    max-width:1300px;
 
-    margin:40px auto;
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,.08);
+    margin:auto;
 
 }
 
@@ -25,47 +53,53 @@
 
     text-align:center;
 
-    color:#7c3aed;
+    font-size:50px;
 
-    margin-bottom:30px;
+    color:white;
 
-    font-size:38px;
+    margin-bottom:40px;
+
+    letter-spacing:2px;
 
 }
 
 /*=====================================================
-                BOTÓN AGREGAR
+                BOTÓN NUEVA CIUDAD
 =====================================================*/
 
 .btnNuevaCiudad{
 
-    background:#7c3aed;
+    background:linear-gradient(135deg,#6d28d9,#9333ea,#d946ef);
 
     color:white;
 
     border:none;
 
-    padding:15px 25px;
+    padding:15px 30px;
 
-    border-radius:12px;
+    border-radius:50px;
+
+    font-size:17px;
+
+    font-weight:600;
 
     cursor:pointer;
 
-    font-size:16px;
+    transition:.35s;
 
-    font-weight:bold;
+    margin-bottom:40px;
 
-    transition:.3s;
-
-    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(147,51,234,.35);
 
 }
 
 .btnNuevaCiudad:hover{
 
-    background:#6d28d9;
+    background:linear-gradient(135deg,#7c3aed,#a855f7,#e879f9);
 
-    transform:translateY(-3px);
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:0 18px 35px rgba(217,70,239,.45);
 
 }
 
@@ -77,56 +111,59 @@
 
     display:grid;
 
-    grid-template-columns:
-        repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
 
-    gap:25px;
+    gap:30px;
 
 }
 
 /*=====================================================
-                TARJETA
+                TARJETAS
 =====================================================*/
 
 .cardCiudad{
 
-    background:#fafafa;
+    background:rgba(197, 162, 230, 0.08);
 
-    border-radius:18px;
+    backdrop-filter:blur(18px);
 
-    padding:25px;
+    border:1px solid rgba(255,255,255,.15);
 
-    box-shadow:
-        0 5px 15px
-        rgba(0,0,0,.08);
+    border-radius:25px;
+
+    padding:30px;
 
     transition:.3s;
+
+    color:white;
 
 }
 
 .cardCiudad:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
 
 }
 
 .cardCiudad h3{
 
-    color:#7c3aed;
+    font-size:30px;
 
-    font-size:24px;
+    margin-bottom:15px;
 
-    margin-bottom:10px;
+    color:#d8b4fe;
 
 }
 
 .cardCiudad p{
 
-    color:#6b7280;
+    color:#d1d5db;
 
-    margin-bottom:20px;
+    font-size:17px;
 
-    font-size:16px;
+    margin-bottom:25px;
 
 }
 
@@ -138,56 +175,76 @@
 
     display:flex;
 
-    gap:12px;
+    gap:15px;
 
 }
 
-.botonesCiudad button{
+.btnEditar,
+
+.btnEliminar{
 
     flex:1;
 
-    border:none;
-
     padding:12px;
 
-    border-radius:10px;
+    border:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
 
     cursor:pointer;
 
+    transition:.35s;
+
     color:white;
-
-    font-weight:bold;
-
-    transition:.3s;
 
 }
 
+/* EDITAR */
+
 .btnEditar{
 
-    background:#2563eb;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+    box-shadow:0 8px 20px rgba(37,99,235,.35);
 
 }
 
 .btnEditar:hover{
 
-    background:#1d4ed8;
+    background:linear-gradient(135deg,#3b82f6,#22d3ee);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(34,211,238,.45);
 
 }
 
+/* ELIMINAR */
+
 .btnEliminar{
 
-    background:#ef4444;
+    background:linear-gradient(135deg,#dc2626,#f97316);
+
+    box-shadow:0 8px 20px rgba(220,38,38,.35);
 
 }
 
 .btnEliminar:hover{
 
-    background:#dc2626;
+    background:linear-gradient(135deg,#ef4444,#fb923c);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(251,146,60,.45);
 
 }
 
 /*=====================================================
-                    MODAL
+                MODAL
 =====================================================*/
 
 .modal{
@@ -196,15 +253,13 @@
 
     inset:0;
 
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.65);
 
     display:flex;
 
     justify-content:center;
 
     align-items:center;
-
-    z-index:999;
 
 }
 
@@ -216,16 +271,17 @@
 
 .contenidoModal{
 
-    width:90%;
-    max-width:450px;
+    width:430px;
 
-    background:white;
+    background:#1f2937;
+
+    border-radius:25px;
 
     padding:35px;
 
-    border-radius:18px;
+    color:white;
 
-    animation:aparecer .3s;
+    box-shadow:0 25px 50px rgba(0,0,0,.4);
 
 }
 
@@ -235,43 +291,45 @@
 
     margin-bottom:25px;
 
-    color:#7c3aed;
+    color:#c084fc;
+
+}
+
+.contenidoModal input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#374151;
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+.contenidoModal input::placeholder{
+
+    color:#cbd5e1;
+
+}
+
+.contenidoModal input:focus{
+
+    outline:2px solid #8b5cf6;
 
 }
 
 /*=====================================================
-                FORMULARIO
+                BOTONES MODAL
 =====================================================*/
-
-#formCiudad{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-}
-
-#formCiudad input{
-
-    padding:15px;
-
-    border:2px solid #ddd;
-
-    border-radius:10px;
-
-    font-size:16px;
-
-    outline:none;
-
-}
-
-#formCiudad input:focus{
-
-    border-color:#7c3aed;
-
-}
 
 .botonesModal{
 
@@ -285,65 +343,63 @@
 
     flex:1;
 
-    border:none;
-
     padding:14px;
 
-    border-radius:10px;
+    border:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
 
     cursor:pointer;
 
-    font-weight:bold;
-
-    color:white;
+    transition:.35s;
 
 }
 
+/* GUARDAR */
+
 .botonesModal button[type="submit"]{
 
-    background:#16a34a;
+    background:linear-gradient(135deg,#6d28d9,#d946ef);
+
+    color:white;
+
+    box-shadow:0 8px 20px rgba(147,51,234,.35);
 
 }
 
 .botonesModal button[type="submit"]:hover{
 
-    background:#15803d;
+    background:linear-gradient(135deg,#7c3aed,#e879f9);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(217,70,239,.45);
 
 }
 
+/* CANCELAR */
+
 #cerrarModal{
 
-    background:#ef4444;
+    background:linear-gradient(135deg,#dc2626,#f97316);
+
+    color:white;
+
+    box-shadow:0 8px 20px rgba(220,38,38,.35);
 
 }
 
 #cerrarModal:hover{
 
-    background:#dc2626;
+    background:linear-gradient(135deg,#ef4444,#fb923c);
 
-}
+    transform:translateY(-3px);
 
-/*=====================================================
-                ANIMACIÓN
-=====================================================*/
-
-@keyframes aparecer{
-
-    from{
-
-        transform:scale(.8);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
+    box-shadow:0 12px 25px rgba(251,146,60,.45);
 
 }
 
@@ -353,9 +409,27 @@
 
 @media(max-width:768px){
 
+    body{
+
+        padding:20px;
+
+    }
+
+    .contenedorCiudades h1{
+
+        font-size:36px;
+
+    }
+
     #listaCiudades{
 
         grid-template-columns:1fr;
+
+    }
+
+    .contenidoModal{
+
+        width:95%;
 
     }
 
